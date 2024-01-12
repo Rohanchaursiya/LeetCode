@@ -15,22 +15,20 @@ class Solution {
         j=j-1;
         int c1=0;
         //Vowel_Count(S,0,j/2);
-        int c2=0;
+        //int c2=0;
         //Vowel_Count(s,(j/2)+1,j-1);
         while(i<=j){
             if(s.charAt(i)=='a' || s.charAt(i)=='e' || s.charAt(i)=='i' || s.charAt(i)=='o' || s.charAt(i)=='u' || s.charAt(i)=='A' || s.charAt(i)=='E' || s.charAt(i)=='I' || s.charAt(i)=='O' || s.charAt(i)=='U'){
                 c1++;
             }
             if(s.charAt(j)=='a' || s.charAt(j)=='e' || s.charAt(j)=='i' || s.charAt(j)=='o' || s.charAt(j)=='u' || s.charAt(j)=='A' || s.charAt(j)=='E' || s.charAt(j)=='I' || s.charAt(j)=='O' || s.charAt(j)=='U'){
-                c2++;
+                c1--;
             }
             i++;
             j--;
 
         }
-        if(c1==c2){
-            return true;
-        }
+        if(c1==0)return true;
         return false;
         
     }
