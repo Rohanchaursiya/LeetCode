@@ -6,9 +6,9 @@ class Solution {
         Arrays.fill(isPrime,true);
         isPrime[0]=false;
         isPrime[1]=false;
-        for(int i=2;i<(long)n;i++){
+        for(int i=2;i*i<(long)n;i++){
             if(isPrime[i]){
-                for(int j=2*i;j<(long)n;j+=i){
+                for(int j=i*i;j<(long)n;j+=i){
                     isPrime[j]=false;
                 }
             }
