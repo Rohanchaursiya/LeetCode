@@ -1,0 +1,28 @@
+class Solution {
+    public boolean isPrime(int n){
+        if(n==0 || n==1)return false;
+        for(int i=2;i*i<=n;i++){
+            if(n%i==0)return false;
+        }
+        return true;
+    }
+    public int maximumPrimeDifference(int[] nums) {
+        int i=0;
+        int j=nums.length-1;
+        while(i<=j){
+            if(!isPrime(nums[i])){
+                i++;
+            }else{
+                break;
+            }
+        }
+        while(i<=j){
+            if(!isPrime(nums[j])){
+                j--;
+            }else{
+                break;
+            }
+        }
+        return j-i;
+    }
+}
