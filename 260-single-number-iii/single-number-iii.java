@@ -1,20 +1,18 @@
 class Solution {
     public int[] singleNumber(int[] nums) {
-        if(nums.length==2)return nums;
-        Arrays.sort(nums);
+        HashMap<Integer,Integer> hm=new HashMap<>();
+        for(int num : nums){
+            hm.put(num,hm.getOrDefault(num,0) + 1);
+        }
         int ans[]=new int[2];
-        int k=0,c=0;
-        for(int i=0;i<nums.length;i++){
-            c=0;
-            for(int j=0;j<nums.length;j++){
-                if(nums[i]==nums[j])c++;
-            }
-            if(c==1){
-                ans[k++]=nums[i];
-                c=0;
+        int k=0;
+        for(Map.Entry<Integer,Integer> entry : hm.entrySet()){
+            if(entry.getValue()==1){
+                ans[k++]=entry.getKey();
             }
         }
         return ans;
+
         
     }
 }
